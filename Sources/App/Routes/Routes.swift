@@ -31,7 +31,7 @@ extension Droplet {
             tagger.string = inputString
             
             let range = NSRange(location: 0, length: inputString.utf16.count)
-            tagger.enumerateTags(in: range, scheme: "NameTypeOrLexicalClass", options: NSLinguisticTagger.Options(rawValue: options)) { tag, tokenRange, sentenceRange, stop in
+            tagger.enumerateTags(in: range, scheme: NSLinguisticTagScheme(rawValue: "NameTypeOrLexicalClass"), options: NSLinguisticTagger.Options(rawValue: options)) { tag, tokenRange, sentenceRange, stop in
                 guard let range = Range(tokenRange, in: inputString) else { return }
                 let token = inputString[range]
                 output = "\(output) <br> \(tag): \(token)"
