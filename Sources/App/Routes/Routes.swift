@@ -1,6 +1,5 @@
 import Vapor
-import Foundation
-@_exported import AppKit
+import AppKit
 
 extension Droplet {
     func setupRoutes() throws {
